@@ -445,6 +445,20 @@ name = <span class="hljs-string">'John'</span>
   </div>
   <div class="slide hidden" id="slide-9">
     <section class="slide-content"><h3 id="-">模块系统</h3>
+<p>Javascript 的模块使用静态加载模式，在代码编译时完成对模块的加载，相当于对文件的一个引用，等到脚步需要执行时，再去那个模块内取值。
+关键字 <code>import</code>，<code>export</code>。</p>
+<pre><code class="lang-js"><span class="hljs-comment">// a.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ten = <span class="hljs-number">10</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> addOne = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x += <span class="hljs-number">1</span>
+
+<span class="hljs-comment">// b.js</span>
+<span class="hljs-keyword">import</span> { ten, addOne } <span class="hljs-keyword">from</span> <span class="hljs-string">'./a'</span>
+
+<span class="hljs-built_in">console</span>.log(ten, addOne(ten))
+
+<span class="hljs-comment">// 10, 11</span>
+
+</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-10">

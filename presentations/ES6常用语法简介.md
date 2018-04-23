@@ -99,6 +99,23 @@ console.log(`《${book.name}》 需要 ${book.price}元才能买到。`)
 
 ### 模块系统
 
+Javascript 的模块使用静态加载模式，在代码编译时完成对模块的加载，相当于对文件的一个引用，等到脚步需要执行时，再去那个模块内取值。
+关键字 `import`，`export`。
+
+```js
+// a.js
+export const ten = 10
+export const addOne = x => x += 1
+
+// b.js
+import { ten, addOne } from './a'
+
+console.log(ten, addOne(ten))
+
+// 10, 11
+
+```
+
 --
 
 ### 对象的扩展
