@@ -1,0 +1,88 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Presentations</title>
+<meta name="description" content="description">
+<link type="image/png" href rel="icon">
+<style>
+  html, body {
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+  }
+  *, *::before, *::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+  }
+  main.container {
+    width: 95%;
+    padding-top: 80px;
+    margin: 0 auto;
+    max-width: 660px;
+  }
+  ul.list {
+    list-style: none;
+    counter-reset: counter;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 12px;
+    max-height: calc(100vh - 160px);
+  }
+  li.item {
+    font-size: 18px;
+    margin-bottom: 12px;
+    background-color: #ffffff;
+    padding: 8px 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .02);
+  }
+  li.item::before{
+    counter-increment: counter;
+    content: counters(counter, '.') ' ';
+  }
+  a.link {
+    position: relative;
+    color: #333333;
+    text-decoration: none;
+  }
+  a.link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    background-color: #333333;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  a.link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  a.link::selection {
+  color: white;
+  background: slateblue;
+}
+</style>
+</head>
+<body>
+<main class="container">
+  <ul class="list">
+    <li class="item"><a class="link" href="presentations/ES6常用语法简介.html">ES6常用语法简介</a></li>
+  </ul>
+</main>
+</body>
+</html>
