@@ -87,6 +87,30 @@ console.log(`《${book.name}》 需要 ${book.price}元才能买到。`)
 
 ### Promise 对象
 
+Promise 对象用来解决异步编程问题，一个 Promise 对象有3种状态 pending, fulfilled, rejected，当被决断后 resolved，它的状态不能再被改变， 常用方法 Promise.all, Promise.race, Promise.resolve。
+
+```js
+let status = true
+
+const p = new Promise((resolve, reject) => {
+  if (status) {
+    setTimeout(() => resolve('success'), 2000)
+  } else {
+    reject('error')
+  }
+})
+
+console.log(p)
+
+p
+ .then(text => console.log(p, text))
+ .catch(text => console.log(text))
+
+// Promise {<pending>}
+// Promise {<resolved>: "success"} "success"
+
+```
+
 --
 
 ### Async 函数
@@ -182,7 +206,6 @@ const ontherPreson = {...person }
 
 person.work()
 ontherPreson.work()
-
 ```
 
 --
@@ -191,11 +214,37 @@ ontherPreson.work()
 
 默认参数，rest 参数。
 
-![func](../images/function_expend.png)
+```js
+
+function code(time = 8, ...rest) {
+  console.log(`I code ${time} hours a day, i can write ${rest}.`)
+}
+
+code()
+// "I code 8 hours a day and i can write ."
+code(10, 'html', 'css', 'javascript')
+// "I code 10 hours a day and i can write html,css,javascript."
+
+```
 
 --
 
 ### 数组的扩展
+
+数组实例的 find，findIndex，includes 方法。
+
+```js
+const fruits = [
+  {name: 'apple', price: 5 },
+  {name: 'pear', price: 4 },
+  {name: 'banana', price: 6 }
+]
+const balls = ['football', 'basketball', 'pingpong']
+
+const apple = fruits.find(f => f.name === 'apple') // {name: "apple", price: 5}
+const pearIndex = fruits.findIndex(f => f.price === 4) // 1
+const hasFootBall = balls.includes('football')  // true
+```
 
 --
 

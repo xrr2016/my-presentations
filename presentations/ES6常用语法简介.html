@@ -433,6 +433,27 @@ name = <span class="hljs-string">'John'</span>
   </div>
   <div class="slide hidden" id="slide-6">
     <section class="slide-content"><h3 id="promise-">Promise 对象</h3>
+<p>Promise 对象用来解决异步编程问题，一个 Promise 对象有3种状态 pending, fulfilled, rejected，当被决断后 resolved，它的状态不能再被改变， 常用方法 Promise.all, Promise.race, Promise.resolve。</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> status = <span class="hljs-literal">true</span>
+
+<span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+  <span class="hljs-keyword">if</span> (status) {
+    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(<span class="hljs-string">'success'</span>), <span class="hljs-number">2000</span>)
+  } <span class="hljs-keyword">else</span> {
+    reject(<span class="hljs-string">'error'</span>)
+  }
+})
+
+<span class="hljs-built_in">console</span>.log(p)
+
+p
+ .then(<span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(p, text))
+ .catch(<span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(text))
+
+<span class="hljs-comment">// Promise {&lt;pending&gt;}</span>
+<span class="hljs-comment">// Promise {&lt;resolved&gt;: "success"} "success"</span>
+
+</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-7">
@@ -517,18 +538,39 @@ xiaobai.speak() <span class="hljs-comment">// 喵.</span>
 
 person.work()
 ontherPreson.work()
-
 </code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-11">
     <section class="slide-content"><h3 id="-">函数的扩展</h3>
 <p>默认参数，rest 参数。</p>
-<p><img src="../images/function_expend.png" alt="func"></p>
+<pre><code class="lang-js">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">code</span>(<span class="hljs-params">time = <span class="hljs-number">8</span>, ...rest</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`I code <span class="hljs-subst">${time}</span> hours a day, i can write <span class="hljs-subst">${rest}</span>.`</span>)
+}
+
+code()
+<span class="hljs-comment">// "I code 8 hours a day and i can write ."</span>
+code(<span class="hljs-number">10</span>, <span class="hljs-string">'html'</span>, <span class="hljs-string">'css'</span>, <span class="hljs-string">'javascript'</span>)
+<span class="hljs-comment">// "I code 10 hours a day and i can write html,css,javascript."</span>
+
+</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-12">
     <section class="slide-content"><h3 id="-">数组的扩展</h3>
+<p>数组实例的 find，findIndex，includes 方法。</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> fruits = [
+  {<span class="hljs-attr">name</span>: <span class="hljs-string">'apple'</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">5</span> },
+  {<span class="hljs-attr">name</span>: <span class="hljs-string">'pear'</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">4</span> },
+  {<span class="hljs-attr">name</span>: <span class="hljs-string">'banana'</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">6</span> }
+]
+<span class="hljs-keyword">const</span> balls = [<span class="hljs-string">'football'</span>, <span class="hljs-string">'basketball'</span>, <span class="hljs-string">'pingpong'</span>]
+
+<span class="hljs-keyword">const</span> apple = fruits.find(<span class="hljs-function"><span class="hljs-params">f</span> =&gt;</span> f.name === <span class="hljs-string">'apple'</span>) <span class="hljs-comment">// {name: "apple", price: 5}</span>
+<span class="hljs-keyword">const</span> pearIndex = fruits.findIndex(<span class="hljs-function"><span class="hljs-params">f</span> =&gt;</span> f.price === <span class="hljs-number">4</span>) <span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">const</span> hasFootBall = balls.includes(<span class="hljs-string">'football'</span>)  <span class="hljs-comment">// true</span>
+</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-13">
