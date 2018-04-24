@@ -89,11 +89,54 @@ console.log(`《${book.name}》 需要 ${book.price}元才能买到。`)
 
 --
 
-### async 函数
+### Async 函数
+
+async 函数主要用来处理异步操作，如异步请求，文件读写，定时器等， 它的返回值是一个 Promise 对象。
+
+```js
+function sleep(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms)
+  })
+}
+
+async function log() {
+  await sleep(3000)
+  console.log('3秒后。')
+}
+
+log()
+
+```
 
 --
 
 ### Class 关键字
+
+class 关键字用来定义‘类’，实际上是基于 prototype 的语法糖。
+
+```js
+function Dog(name, age) {
+  this.name = name
+  this.age = age
+}
+Dog.prototype.speak = function () { console.log('汪!') }
+
+class Cat {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+  speak() {
+    console.log('喵.')
+  }
+}
+
+const xiaohei = new Dog('小黑', 1)
+const xiaobai = new Cat('小白', 1)
+xiaohei.speak() // 汪!
+xiaobai.speak() // 喵.
+```
 
 --
 
@@ -120,9 +163,35 @@ console.log(ten, addOne(ten))
 
 ### 对象的扩展
 
+更简洁的语法，属性名变量， 对象的扩展运算符（...）。
+
+```js
+const name = 'leo'
+const gender = 'male'
+const key = 'job'
+
+const person = {
+  name,
+  gender,
+  [key]: 'Teacher',
+  work() {
+    console.log('Teaching and educating people。')
+  }
+}
+const ontherPreson = {...person }
+
+person.work()
+ontherPreson.work()
+
+```
+
 --
 
 ### 函数的扩展
+
+默认参数，rest 参数。
+
+![func](../images/function_expend.png)
 
 --
 

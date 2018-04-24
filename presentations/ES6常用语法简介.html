@@ -436,11 +436,48 @@ name = <span class="hljs-string">'John'</span>
 </section>
   </div>
   <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h3 id="async-">async 函数</h3>
+    <section class="slide-content"><h3 id="async-">Async 函数</h3>
+<p>async 函数主要用来处理异步操作，如异步请求，文件读写，定时器等， 它的返回值是一个 Promise 对象。</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sleep</span>(<span class="hljs-params">ms</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
+    setTimeout(resolve, ms)
+  })
+}
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">await</span> sleep(<span class="hljs-number">3000</span>)
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'3秒后。'</span>)
+}
+
+log()
+
+</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-8">
     <section class="slide-content"><h3 id="class-">Class 关键字</h3>
+<p>class 关键字用来定义‘类’，实际上是基于 prototype 的语法糖。</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Dog</span>(<span class="hljs-params">name, age</span>) </span>{
+  <span class="hljs-keyword">this</span>.name = name
+  <span class="hljs-keyword">this</span>.age = age
+}
+Dog.prototype.speak = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'汪!'</span>) }
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> </span>{
+  <span class="hljs-keyword">constructor</span>(name, age) {
+    <span class="hljs-keyword">this</span>.name = name
+    <span class="hljs-keyword">this</span>.age = age
+  }
+  speak() {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'喵.'</span>)
+  }
+}
+
+<span class="hljs-keyword">const</span> xiaohei = <span class="hljs-keyword">new</span> Dog(<span class="hljs-string">'小黑'</span>, <span class="hljs-number">1</span>)
+<span class="hljs-keyword">const</span> xiaobai = <span class="hljs-keyword">new</span> Cat(<span class="hljs-string">'小白'</span>, <span class="hljs-number">1</span>)
+xiaohei.speak() <span class="hljs-comment">// 汪!</span>
+xiaobai.speak() <span class="hljs-comment">// 喵.</span>
+</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-9">
@@ -463,10 +500,31 @@ name = <span class="hljs-string">'John'</span>
   </div>
   <div class="slide hidden" id="slide-10">
     <section class="slide-content"><h3 id="-">对象的扩展</h3>
+<p>更简洁的语法，属性名变量， 对象的扩展运算符（...）。</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> name = <span class="hljs-string">'leo'</span>
+<span class="hljs-keyword">const</span> gender = <span class="hljs-string">'male'</span>
+<span class="hljs-keyword">const</span> key = <span class="hljs-string">'job'</span>
+
+<span class="hljs-keyword">const</span> person = {
+  name,
+  gender,
+  [key]: <span class="hljs-string">'Teacher'</span>,
+  work() {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Teaching and educating people。'</span>)
+  }
+}
+<span class="hljs-keyword">const</span> ontherPreson = {...person }
+
+person.work()
+ontherPreson.work()
+
+</code></pre>
 </section>
   </div>
   <div class="slide hidden" id="slide-11">
     <section class="slide-content"><h3 id="-">函数的扩展</h3>
+<p>默认参数，rest 参数。</p>
+<p><img src="../images/function_expend.png" alt="func"></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-12">
