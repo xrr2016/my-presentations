@@ -1,3 +1,3 @@
 # my-presentations
 
-[https://xrr2016.github.io/my-presentations/](watch)
+[Watch](https://xrr2016.github.io/my-presentations)
