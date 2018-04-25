@@ -131,7 +131,7 @@ a:hover {
 }
 
 pre {
-  font-size: 60%;
+  font-size: 1.8rem;
   line-height: 1.3;
 }
 
@@ -364,32 +364,44 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     <div class="progress-bar"></div>
   </div>
 
-  <div class="slide" id="slide-1">
+  <div class="slide
+" id="slide-1">
     <section class="slide-content"><h1 id="es6-">ES6 常用语法简介</h1>
 </section>
   </div>
-  <div class="slide hidden" id="slide-2">
+  <div class="slide hidden
+" id="slide-2">
     <section class="slide-content"><h3 id="-let-const-var">使用 let 和 const 代替 var</h3>
-<p>let 用来声明变量，值可以改变。const 用来声明一个只读的常量，值不能改变。使用 let声明的变量 和 const 命令声明的常量都拥有块级作用域，在同一作用域内不容许重复声明，不存在‘变量提升’现象。</p>
+<p>let 用来声明变量，值可以改变。const 用来声明一个常量，值不能改变, 声明时值不可为空。使用 let 声明的变量 和 const 命令声明的常量都拥有块级作用域，在同一作用域内不容许重复声明，不存在‘变量提升’现象。</p>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> name = <span class="hljs-string">'Jack'</span>
 name = <span class="hljs-string">'John'</span>
 
 <span class="hljs-keyword">const</span> COMPANY_NAME = <span class="hljs-string">'VMEI'</span>
+<span class="hljs-keyword">const</span> COMPANY_LOGO <span class="hljs-comment">// throw Error</span>
+
+{
+  <span class="hljs-keyword">let</span> theme = <span class="hljs-string">'dark'</span>
+  <span class="hljs-built_in">console</span>.log(theme) <span class="hljs-comment">// dark</span>
+}
+
+<span class="hljs-built_in">console</span>.log(theme) <span class="hljs-comment">// theme is not defined</span>
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-3">
+  <div class="slide hidden
+" id="slide-3">
     <section class="slide-content"><h3 id="-">箭头函数</h3>
-<p>箭头函数 <code>=&gt;</code> 是一种声明函数的简写形式，它可以绑定代码书写时的当前作用域，从而避免再声明类似 that, self, _this 等变量保存当前作用域。</p>
-<pre><code class="lang-js">
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add10</span>(<span class="hljs-params">x</span>) </span>{ <span class="hljs-keyword">return</span> x += <span class="hljs-number">10</span> }
+<p>箭头函数 <code>=&gt;</code> 是声明函数的简写形式，它可以绑定函数代码位置的当前作用域，从而避免再声明类似 that, self, _this 等变量保存当前作用域。</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add10</span>(<span class="hljs-params">x</span>) </span>{
+  <span class="hljs-keyword">return</span> (x += <span class="hljs-number">10</span>)
+}
 
-<span class="hljs-keyword">const</span> add10 = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x += <span class="hljs-number">10</span>
-
+<span class="hljs-keyword">const</span> add10 = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> (x += <span class="hljs-number">10</span>)
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-4">
+  <div class="slide hidden
+" id="slide-4">
     <section class="slide-content"><h3 id="-">对象和数组的解构赋值</h3>
 <p>按照一定的模式从数组或对象中提取值，然后对变量赋值。</p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> user = {
@@ -415,7 +427,8 @@ name = <span class="hljs-string">'John'</span>
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-5">
+  <div class="slide hidden
+" id="slide-5">
     <section class="slide-content"><h3 id="-">模板字符串</h3>
 <p>模版字符串是增强的字符串，使用反引号 ` 标识，可以定义多行字符串，以及在字符串中使用变量。</p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> book = {
@@ -426,13 +439,13 @@ name = <span class="hljs-string">'John'</span>
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`《<span class="hljs-subst">${book.name}</span>》 需要 <span class="hljs-subst">${book.price}</span>元才能买到。`</span>)
 
 <span class="hljs-comment">// 《这样写出好故事》 需要 56元才能买到。</span>
-
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-6">
+  <div class="slide hidden
+" id="slide-6">
     <section class="slide-content"><h3 id="promise-">Promise 对象</h3>
-<p>Promise 对象用来解决异步编程问题，一个 Promise 对象有3种状态 pending, fulfilled, rejected，当被决断后 resolved，它的状态不能再被改变， 常用方法 Promise.all, Promise.race, Promise.resolve。</p>
+<p>Promise 对象用来解决异步编程问题，一个 Promise 对象有3种状态 pending, fulfilled, rejected，当被 resolved 或者 rejected 后，它的状态不能再被改变， 常用方法 Promise.all, Promise.race, Promise.resolve。</p>
 <pre><code class="lang-js"><span class="hljs-keyword">let</span> status = <span class="hljs-literal">true</span>
 
 <span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
@@ -445,19 +458,17 @@ name = <span class="hljs-string">'John'</span>
 
 <span class="hljs-built_in">console</span>.log(p)
 
-p
- .then(<span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(p, text))
- .catch(<span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(text))
+p.then(<span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(p, text)).catch(<span class="hljs-function"><span class="hljs-params">text</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(text))
 
 <span class="hljs-comment">// Promise {&lt;pending&gt;}</span>
 <span class="hljs-comment">// Promise {&lt;resolved&gt;: "success"} "success"</span>
-
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-7">
+  <div class="slide hidden
+" id="slide-7">
     <section class="slide-content"><h3 id="async-">Async 函数</h3>
-<p>async 函数主要用来处理异步操作，如异步请求，文件读写，定时器等， 它的返回值是一个 Promise 对象。</p>
+<p>async 函数主要用来处理异步操作，如异步请求，文件读写，定时器等， 它的返回值是一个 Promise 对象， 实际上是一个语法糖。</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sleep</span>(<span class="hljs-params">ms</span>) </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> {
     setTimeout(resolve, ms)
@@ -470,18 +481,20 @@ p
 }
 
 log()
-
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-8">
+  <div class="slide hidden
+" id="slide-8">
     <section class="slide-content"><h3 id="class-">Class 关键字</h3>
-<p>class 关键字用来定义‘类’，实际上是基于 prototype 的语法糖。</p>
+<p>class 关键字用来定义‘类’，实际基于对象的 prototype 属性实现。</p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Dog</span>(<span class="hljs-params">name, age</span>) </span>{
   <span class="hljs-keyword">this</span>.name = name
   <span class="hljs-keyword">this</span>.age = age
 }
-Dog.prototype.speak = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'汪!'</span>) }
+Dog.prototype.speak = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'汪!'</span>)
+}
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> </span>{
   <span class="hljs-keyword">constructor</span>(name, age) {
@@ -500,27 +513,30 @@ xiaobai.speak() <span class="hljs-comment">// 喵.</span>
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-9">
+  <div class="slide hidden
+" id="slide-9">
     <section class="slide-content"><h3 id="-">模块系统</h3>
-<p>Javascript 的模块使用静态加载模式，在代码编译时完成对模块的加载，相当于对文件的一个引用，等到脚步需要执行时，再去那个模块内取值。
-关键字 <code>import</code>，<code>export</code>。</p>
+<p>Javascript 的模块使用静态加载模式，在代码编译时完成对模块的加载，相当于对文件的一个引用，等到脚步需要执行时，再去那个模块内取值。关键字 <code>import</code>，<code>export</code>。</p>
 <pre><code class="lang-js"><span class="hljs-comment">// a.js</span>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> ten = <span class="hljs-number">10</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> addOne = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x += <span class="hljs-number">1</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> addOne = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> (x += <span class="hljs-number">1</span>)
 
 <span class="hljs-comment">// b.js</span>
 <span class="hljs-keyword">import</span> { ten, addOne } <span class="hljs-keyword">from</span> <span class="hljs-string">'./a'</span>
-
 <span class="hljs-built_in">console</span>.log(ten, addOne(ten))
 
-<span class="hljs-comment">// 10, 11</span>
+<span class="hljs-comment">// OR</span>
+<span class="hljs-keyword">import</span> a <span class="hljs-keyword">from</span> <span class="hljs-string">'./a'</span>
+<span class="hljs-built_in">console</span>.log(a.ten, a.addOne(ten))
 
+<span class="hljs-comment">// 10, 11</span>
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-10">
+  <div class="slide hidden
+" id="slide-10">
     <section class="slide-content"><h3 id="-">对象的扩展</h3>
-<p>更简洁的语法，属性名变量， 对象的扩展运算符（...）。</p>
+<p>更简洁的语法，属性名变量，对象的扩展运算符（...）。</p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> name = <span class="hljs-string">'leo'</span>
 <span class="hljs-keyword">const</span> gender = <span class="hljs-string">'male'</span>
 <span class="hljs-keyword">const</span> key = <span class="hljs-string">'job'</span>
@@ -533,18 +549,19 @@ xiaobai.speak() <span class="hljs-comment">// 喵.</span>
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Teaching and educating people。'</span>)
   }
 }
-<span class="hljs-keyword">const</span> ontherPreson = {...person }
+
+<span class="hljs-keyword">const</span> ontherPreson = { ...person } <span class="hljs-comment">// 拷贝一个新对象</span>
 
 person.work()
 ontherPreson.work()
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-11">
+  <div class="slide hidden
+" id="slide-11">
     <section class="slide-content"><h3 id="-">函数的扩展</h3>
 <p>默认参数，rest 参数。</p>
-<pre><code class="lang-js">
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">code</span>(<span class="hljs-params">time = <span class="hljs-number">8</span>, ...rest</span>) </span>{
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">code</span>(<span class="hljs-params">time = <span class="hljs-number">8</span>, ...rest</span>) </span>{
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`I code <span class="hljs-subst">${time}</span> hours a day, i can write <span class="hljs-subst">${rest}</span>.`</span>)
 }
 
@@ -552,44 +569,37 @@ code()
 <span class="hljs-comment">// "I code 8 hours a day and i can write ."</span>
 code(<span class="hljs-number">10</span>, <span class="hljs-string">'html'</span>, <span class="hljs-string">'css'</span>, <span class="hljs-string">'javascript'</span>)
 <span class="hljs-comment">// "I code 10 hours a day and i can write html,css,javascript."</span>
-
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-12">
+  <div class="slide hidden
+" id="slide-12">
     <section class="slide-content"><h3 id="-">数组的扩展</h3>
 <p>数组实例的 find，findIndex，includes 方法。</p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> fruits = [
-  {<span class="hljs-attr">name</span>: <span class="hljs-string">'apple'</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">5</span> },
-  {<span class="hljs-attr">name</span>: <span class="hljs-string">'pear'</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">4</span> },
-  {<span class="hljs-attr">name</span>: <span class="hljs-string">'banana'</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">6</span> }
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">'apple'</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">5</span> },
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">'pear'</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">4</span> },
+  { <span class="hljs-attr">name</span>: <span class="hljs-string">'banana'</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">6</span> }
 ]
 <span class="hljs-keyword">const</span> balls = [<span class="hljs-string">'football'</span>, <span class="hljs-string">'basketball'</span>, <span class="hljs-string">'pingpong'</span>]
 
 <span class="hljs-keyword">const</span> apple = fruits.find(<span class="hljs-function"><span class="hljs-params">f</span> =&gt;</span> f.name === <span class="hljs-string">'apple'</span>) <span class="hljs-comment">// {name: "apple", price: 5}</span>
 <span class="hljs-keyword">const</span> pearIndex = fruits.findIndex(<span class="hljs-function"><span class="hljs-params">f</span> =&gt;</span> f.price === <span class="hljs-number">4</span>) <span class="hljs-comment">// 1</span>
-<span class="hljs-keyword">const</span> hasFootBall = balls.includes(<span class="hljs-string">'football'</span>)  <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">const</span> hasFootBall = balls.includes(<span class="hljs-string">'football'</span>) <span class="hljs-comment">// true</span>
 </code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-13">
+  <div class="slide hidden
+" id="slide-13">
     <section class="slide-content"><h3 id="-">参考资料</h3>
 <p><a href="http://es6.ruanyifeng.com/">ECMAScript 6 入门</a></p>
 <p><a href="http://es6-features.org/#Constants">ECMAScript 6 — New Features</a></p>
 <p><a href="https://github.com/mbeaudru/modern-js-cheatsheet">Modern JavaScript Cheatsheet</a></p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
+  <div class="slide hidden
+" id="slide-14">
     <section class="slide-content"></section>
-  </div>
-  <div class="slide hidden author-slide" id="slide-15">
-    <section class="slide-content"><div class="author">
-  <h1 class="name">轻剑快马</h1>
-    <h3 class="url">
-      <a href="https://github.com/xrr2016">https://github.com/xrr2016</a>
-    </h3>
-</div>
-</section>
   </div>
 
 
