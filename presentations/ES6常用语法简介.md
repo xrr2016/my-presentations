@@ -1,7 +1,7 @@
 title: ES6常用语法简介
 author:
-name: 轻剑快马
-url: https://github.com/xrr2016
+  name: 轻剑快马
+  url: https://github.com/xrr2016
 controls: false
 output: presentations/ES6常用语法简介.html
 

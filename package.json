@@ -6,7 +6,7 @@
   "author": "xrr2016 <xiaoranran1993@163.com>",
   "scripts": {
     "write": "lite-server",
-    "watch": "cleaver watch ./presentations/ES6常用语法简介.md"
+    "watch": "cleaver watch ./presentations/BEM命名法及常用class命名.md"
   },
   "license": "MIT",
   "dependencies": {
