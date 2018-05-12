@@ -43,7 +43,7 @@
 
     ul.list {
       list-style: none;
-      counter-reset: counter;
+      counter-reset: items;
       overflow-x: hidden;
       overflow-y: auto;
       padding-bottom: 12px;
@@ -60,8 +60,8 @@
     }
 
     li.item::before {
-      counter-increment: counter;
-      content: counters(counter, '.') ' ';
+      counter-increment: items;
+      content: counters(items, ".") " "; 
     }
 
     a.link {
@@ -104,9 +104,9 @@
       <li class="item">
         <a class="link" href="presentations/BEM命名法及常用class命名.html">BEM命名法及常用class命名</a>
       </li>
-      <!-- <li class="item">
-        <a class="link" href="presentations/使用YApi提高前后端对接效率.html">使用 YApi 提高前后端对接效率</a>
-      </li> -->
+      <li class="item">
+        <a class="link" href="presentations/YApi使用指南.html">YApi使用指南</a>
+      </li>
     </ul>
   </main>
   <script>

@@ -5,14 +5,10 @@
   "repository": "git@github.com:xrr2016/my-presentations.git",
   "author": "xrr2016 <xiaoranran1993@163.com>",
   "scripts": {
-    "write": "lite-server",
-    "watch": "cleaver watch ./presentations/BEM命名法及常用class命名.md"
+    "watch": "cleaver watch ./presentations/YApi使用指南.md"
   },
   "license": "MIT",
   "dependencies": {
     "cleaver": "^0.8.7"
-  },
-  "devDependencies": {
-    "lite-server": "^2.3.0"
   }
 }
