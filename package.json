@@ -5,7 +5,7 @@
   "repository": "git@github.com:xrr2016/my-presentations.git",
   "author": "xrr2016 <xiaoranran1993@163.com>",
   "scripts": {
-    "watch": "cleaver watch ./presentations/YApi使用指南.md"
+    "watch": "cleaver watch ./presentations/前端项目规范.md"
   },
   "license": "MIT",
   "dependencies": {
